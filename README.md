@@ -717,7 +717,7 @@ npm run dev
 
 #### Gemini API 라우터 작성
 
-> 파일 위치: app/api/recipe/route.ts
+> - 파일 위치: app/api/recipe/route.ts
 
 ```
 import { NextResponse } from 'next/server';
@@ -920,14 +920,14 @@ const { data, error } = await supabase
 
 ---
 ### 레시피 저장 기능 구현 (3)
-####구현 설계
+#### 구현 설계
 
 1. 데이터 구조 파악: 현재 saved_recipes 테이블의 recipe_data 컬럼은 Gemini가 준 JSON(jsonb 타입)이 통째로 들어가 있고, 그 안에 title이라는 키값으로 요리 이름이 저장되어 있다.
 2. Supabase Update 처리: PostgreSQL의 jsonb_set 기능을 사용하면 테이블 전체를 바꿀 필요 없이, JSON 내부의 특정 키(title)만 쏙 골라서 안전하게 업데이트할 수 있다.
 
 프롬프트:
 
-> 파일 위치: app/api/recipe/update-title/route.ts
+> - 파일 위치: app/api/recipe/update-title/route.ts
 
 ```
 import { NextResponse } from 'next/server';
@@ -984,7 +984,7 @@ export async function PATCH(request: Request) {
 
 > 사용자가 저장한 레시피들을 격자(Grid) 형태로 보여주고, 타이틀 옆의 ✏️ 버튼을 누르면 인풋창으로 바뀌면서 이름을 즉시 수정할 수 있는 SavedRecipesModal.tsx 컴포넌트야.
 >
->파일 위치: app/components/SavedRecipesModal.tsx
+> - 파일 위치: app/components/SavedRecipesModal.tsx
 
 ```
 'use client';
