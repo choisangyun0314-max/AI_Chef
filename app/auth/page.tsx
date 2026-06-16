@@ -32,8 +32,8 @@ export default function AuthPage() {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          // 로그인 완료 후 부모 창에 알리기 위해 홈페이지로 리다이렉트 (팝업창 내에서 열림)
-          redirectTo: window.location.origin,
+          // 로그인 완료 후 세션 생성을 위해 콜백 경로로 동적 리디렉션
+          redirectTo: `${window.location.origin}/auth/callback`,
         },
       })
       if (error) throw error
